@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DIR="$(dirname "$0")"
+
+cd "$DIR/../Resources"
+
+"$DIR/dosbox-x-bin" -conf "dosbox.conf" -c "mount c timmy" -c "c:" -c "TIMMY.EXE" -c "exit"

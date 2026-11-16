@@ -1,0 +1,484 @@
+{
+    "automappingRulesFile": "",
+    "commands": [
+    ],
+    "compatibilityVersion": 1100,
+    "extensionsPath": "extensions",
+    "folders": [
+        "."
+    ],
+    "properties": [
+    ],
+    "propertyTypes": [
+        {
+            "id": 20,
+            "name": "cowboySpare",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SHOOT_NORMAL",
+                "SHOOT_CROUCH"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 3,
+            "name": "dir",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "LEFT",
+                "RIGHT",
+                "DOWN",
+                "UP"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 22,
+            "name": "egypt_symbol",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "CROSS_SYMBOL",
+                "EYE_SYMBOL",
+                "BETTLE_SYMBOL"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 24,
+            "name": "egyptianSpare",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "NO_PATROL",
+                "PATROL"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 28,
+            "name": "endType",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "END_0",
+                "END_1",
+                "END_2",
+                "END_3"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 7,
+            "members": [
+                {
+                    "name": "dir",
+                    "propertyType": "dir",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "enemy",
+            "type": "class",
+            "useAs": [
+                "property",
+                "object",
+                "project"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "entityProperties",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "PHYSICS_ON",
+                "NO_COLLISION",
+                "PERSISTENT",
+                "NO_BREAKABLE",
+                "NO_PICKABLE",
+                "AUTO_DESTROY",
+                "NO_HURT"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "id": 30,
+            "name": "ghostSpare",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "NO_PATROL",
+                "PATROL",
+                "CHASE"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 5,
+            "name": "items",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "EXTRA_LIFE",
+                "FULL_LIFE"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 26,
+            "name": "lanceDir",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "DIR_UP",
+                "DIR_DOWN"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 29,
+            "name": "levels",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "JURASSIC",
+                "EGYPT",
+                "MEDIEVAL",
+                "WEST",
+                "TUTORIAL"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 8,
+            "members": [
+            ],
+            "name": "object",
+            "type": "class",
+            "useAs": [
+                "property",
+                "object",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 10,
+            "members": [
+            ],
+            "name": "platform",
+            "type": "class",
+            "useAs": [
+                "property",
+                "object",
+                "project"
+            ]
+        },
+        {
+            "id": 25,
+            "name": "platform_type",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "MOVE_PATROL",
+                "MOVE_DISAPPEAR",
+                "WAIT_PLAYER_FLAG",
+                "TILE_RANGE"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 9,
+            "members": [
+                {
+                    "name": "dir",
+                    "propertyType": "dir",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "player",
+            "type": "class",
+            "useAs": [
+                "property",
+                "object",
+                "project"
+            ]
+        },
+        {
+            "id": 23,
+            "name": "scorpion",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "YELLOW_WILD_WEST",
+                "RED_EGYPT"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 27,
+            "name": "scroll_modes",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "SCROLL_NONE",
+                "SCROLL_MOVE_ALL",
+                "SCROLL_BY_WINDOW",
+                "SCROLL_BY_WINDOW_Y_ONLY",
+                "SCROLL_AUTOSCROLL_X"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "id": 6,
+            "name": "stopScroll",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "NO_SCROLL_LEFT",
+                "NO_SCROLL_RIGHT",
+                "NO_SCROLL_DOWN",
+                "NO_SCROLL_UP"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 12,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 2
+                }
+            ],
+            "name": "tile_FRONT",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 21,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 8192
+                }
+            ],
+            "name": "tile_HALF_TILE",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 18,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 1024
+                }
+            ],
+            "name": "tile_HURT",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 11,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 1
+                }
+            ],
+            "name": "tile_NO_SOLID",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 16,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 16
+                }
+            ],
+            "name": "tile_SLOPE_135",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 17,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 8
+                }
+            ],
+            "name": "tile_SLOPE_45",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 15,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 512
+                }
+            ],
+            "name": "tile_SOLID_ON_FALL",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 14,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 256
+                }
+            ],
+            "name": "tile_STAIR",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 13,
+            "members": [
+                {
+                    "name": "property",
+                    "propertyType": "tileProperties",
+                    "type": "int",
+                    "value": 128
+                }
+            ],
+            "name": "tile_TOP_STAIR",
+            "type": "class",
+            "useAs": [
+                "property",
+                "tile",
+                "tileset",
+                "project"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "tileProperties",
+            "storageType": "int",
+            "type": "enum",
+            "values": [
+                "NO_SOLID",
+                "FRONT_LAYER",
+                "ANIMATION",
+                "SLOPE_45",
+                "SLOPE_135",
+                "SLOPE_25",
+                "SLOPE_152",
+                "TOP_STAIR",
+                "STAIR",
+                "SOLID_ON_FALL",
+                "HURT",
+                "SLOPE_25_2",
+                "SLOPE_152_2",
+                "HALF_TILE",
+                "WATER"
+            ],
+            "valuesAsFlags": true
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 19,
+            "members": [
+            ],
+            "name": "trigger",
+            "type": "class",
+            "useAs": [
+                "property",
+                "object",
+                "project"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+PRESIONA TECLA PARA EMPEZAR
+NUEVA PARTIDA
+OPCIONES
+SALIR
+IDIOMA:
+CONTROLES
+VOLUMEN EFECTOS:
+VOLUMEN MÚSICA:
+CONTINUAR
+SALIR AL TÍTULO
+SALIR AL DOS
+REINICIAR NIVEL
+PAUSA
+VIDAS
+ENERGÍA
+PUNTOS
+RELOJ
+ARRIBA
+ABAJO
+IZQUIERDA
+DERECHA
+SALTAR
+ACCIÓN
+PULSA TECLA
+SI
+NO
+FIN DEL JUEGO
+¿CONTINUAR?
+ELIGE NIVEL
+--CÓMO JUGAR--
+MOVER CON [%s] Y [%s]
+SALTAR CON [%s]
+AGACHAR CON [%s]
+ATACAR CON [%s] EN EL AIRE
+COGER OBJETO CON [%s]
+LANZAR OBJETO CON [%s]
+PULSAR [%s] Y [%s] PARA LANZAMIENTO CORTO
+ENTRAR A LAS PUERTAS CON [%s]
+En mitad de la noche, un niño sigue|trabajando en su laboratorio.
+Ese niño es Timmy y está trabajando|en su último invento:|¡UNA MÁQUINA DEL TIEMPO!
+Tras un arduo trabajo, la máquina está lista.|Es momento de probarla.
+Pero algo sale mal y la máquina|explota al encenderla.
+Timmy y piezas de la máquina|son absorbidas por un vórtice temporal.
+Ahora Timmy está perdido en el tiempo|y tiene que viajar por la historia|para recuperar las piezas perdidas.
+Al fin, Timmy ha recuperado todas|las piezas de la máquina y puede arreglarla.
+Con la máquina reparada, el vórtice|temporal devuelve a Timmy a su época.
+¡Ahora Timmy está en casa de nuevo!
+¡TIEMPO AGOTADO!
+NIVEL COMPLETADO
+¿ESTÁS SEGURO?
+EMPEZARÁS DE NUEVO...
+¡GRACIAS POR JUGAR!
+GRÁFICOS
+CÓDIGO
+MÚSICA Y SONIDO
+DISEÑO NIVELES
+BETATESTERS
+TRADUCCIONES
+AGRADECIMIENTOS
+Warrior
+Warrior
+Warrior|Xabi (xabisan)|MintoDog
+Warrior
+Alfred (Lolocop)|Marc (onepopcorn)|Pedro (RandomShaper)
+Alfred (Lolocop)|Morgoth|Alain (Laertes)|Jordi (jbinary)|Pedro Catalão|Thomas Perl (thp)
+Jordi (jbinary)|Msdos Club|Xavi (Kalzakath)|Antonio (Logarán)
+ESTADÍSTICAS
+TIEMPO DE JUEGO:
+PUNTOS:
+PUNTOS MÁX:
+VIDAS PERDIDAS:
+VIDAS RESTANTES:
+CONTINUACIONES USADAS:
+CONTINUAR PARTIDA
+BORRAR PARTIDA GUARDADA
+GUARDANDO PARTIDA...

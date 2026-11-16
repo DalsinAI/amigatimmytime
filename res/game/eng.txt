@@ -1,0 +1,76 @@
+PRESS ANY KEY TO START
+NEW GAME
+OPTIONS
+EXIT
+LANGUAGE:
+CONTROLS
+SFX VOLUME:
+MUSIC VOLUME:
+CONTINUE
+BACK TO TITLE
+QUIT TO DOS
+RESTART LEVEL
+PAUSED
+LIVES
+HEALTH
+SCORE
+TIME
+UP
+DOWN
+LEFT
+RIGHT
+JUMP
+ACTION
+PRESS A KEY
+YES
+NO
+GAME OVER
+CONTINUE?
+SELECT LEVEL
+--HOW TO PLAY--
+MOVE WITH [%s] AND [%s]
+JUMP WITH [%s]
+CROUCH WITH [%s]
+PUNCH IN MID-AIR WITH [%s]
+PICK UP OBJECTS WITH [%s]
+THROW OBJECTS WITH [%s]
+PRESS [%s] AND [%s] FOR A GENTLE TOSS
+GO THROUGH DOORS WITH [%s]
+Late at night, a boy is still|burning the midnight oil in his lab.
+That boy is Timmy, and he is putting|the finishing touches on his latest|invention: A TIME MACHINE!
+After plenty of blood, sweat and tears,|the machine is finally ready.|Time to take it for a spin.
+But things go haywire, and the machine|blows up the moment he switches it on.
+Timmy and the pieces of the machine|get sucked into a time vortex.
+Now Timmy is lost in time, and he must|travel through the ages to recover|the pieces and find his way back.
+At long last, Timmy has every missing|piece and can fix the machine.
+With the machine up and running,|the vortex sends Timmy back to his time.
+Timmy is home, safe and sound!
+TIME'S UP!
+LEVEL COMPLETE!
+ARE YOU SURE?
+BACK TO SQUARE ONE!
+THANKS FOR PLAYING!
+GRAPHICS
+PROGRAMMING
+MUSIC & SOUND
+LEVEL DESIGN
+BETA TESTERS
+TRANSLATIONS
+SPECIAL THANKS
+Warrior
+Warrior
+Warrior|Xabi (xabisan)|MintoDog
+Warrior
+Alfred (Lolocop)|Marc (onepopcorn)|Pedro (RandomShaper)
+Alfred (Lolocop)|Morgoth|Alain (Laertes)|Jordi (jbinary)|Pedro Catalão|Thomas Perl (thp)
+Jordi (jbinary)|Msdos Club|Xavi (Kalzakath)|Antonio (Logarán)
+STATISTICS
+PLAY TIME:
+SCORE:
+HIGH SCORE:
+LIVES LOST:
+LIVES LEFT:
+CONTINUES USED:
+CONTINUE GAME
+CLEAR SAVED GAME
+SAVING GAME...

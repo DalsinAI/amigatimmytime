@@ -1,0 +1,29 @@
+{    
+    "files.associations": {
+        "*.h": "c",
+        "allegro.h": "c",
+        "collisions.h": "c",
+        "entity.h": "c",
+        "globals.h": "c",
+        "scroll.h": "c",
+        "KEYBOARD.H": "cpp",
+        "TIMER.H": "cpp",
+        "ASTDINT.H": "cpp",
+        "Makefile.windows": "makefile"
+    },
+    "outline.showVariables": false,
+    "outline.showConstants": false,
+    "outline.showStructs": false,
+    "terminal.integrated.profiles.windows": {
+        "MSYS2 MinGW32": {
+            "path": "C:\\msys64\\usr\\bin\\bash.exe",
+            "args": ["--login", "-i"],
+            "env": {
+                "MSYSTEM": "MINGW32",
+                "CHERE_INVOKING": "1"
+            }
+        }
+    }
+    //"terminal.integrated.defaultProfile.windows": "MSYS2 MinGW32"
+
+}
