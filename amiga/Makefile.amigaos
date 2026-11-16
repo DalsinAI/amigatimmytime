@@ -1,0 +1,65 @@
+# Timmy Time Adventure for GFOS: 68040, libnix, soft float, Allegro 4 from
+# gfopenallegro (allegro4.library on acgame.library), both in the drawer's
+# Libs/ (package/build-amiga.sh builds them at the commits it pins).
+#   make -f amiga/Makefile.amigaos PREFIX=<stove>/prefix A4=<gfopenallegro/allegro4> A4OUT=<its build> ACGOUT=<acgame build>
+# Copyright (c) 2026 AmiCradle Team. GPL-3 or later, as Timmy Time Adventure.
+PREFIX ?= $(HOME)/AmiCradle/kitchen/stoves/os32-gcc16-open6/prefix
+A4 ?= ../gfopenallegro/allegro4
+A4OUT ?= $(A4)/build-amiga
+ACGOUT ?= ../acgame/build-amiga
+CC = $(PREFIX)/bin/m68k-amigaos-gcc
+STRIP = $(PREFIX)/bin/m68k-amigaos-strip
+NAME = TimmyTime
+BUILD ?= build/amigaos
+DIR = $(BUILD)/$(NAME)
+
+SRCS = $(wildcard src/*.c) amiga/amiga_start.c
+OBJS = $(patsubst %.c,$(BUILD)/obj/%.o,$(SRCS))
+MAPS = $(patsubst res/maps/%.tmx,$(DIR)/%.bin,$(wildcard res/maps/*.tmx))
+
+SOFT = -specs=$(A4)/specs/m68k-soft-m68040.specs
+CFLAGS = -noixemul -m68040 $(SOFT) -O2 -fomit-frame-pointer -fno-strict-aliasing -fgnu89-inline \
+	-Wall -Wno-unused -Wno-pointer-sign -Isrc -I$(A4)/include \
+	-DMAJOR_VERSION=1 -DMINOR_VERSION=9
+LIBS = $(A4OUT)/liballeg.a -lm
+
+all: $(DIR)/$(NAME) package
+
+$(BUILD)/$(NAME).debug: $(OBJS)
+	$(CC) -noixemul -m68040 $(SOFT) -o $@ $(OBJS) $(LIBS)
+
+$(DIR)/$(NAME): $(BUILD)/$(NAME).debug
+	@mkdir -p $(DIR)
+	$(STRIP) -o $@ $<
+
+$(BUILD)/obj/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# the maps, big-endian for the 68040 (src/map.c reads them field by field)
+$(DIR)/%.bin: res/maps/%.tmx tools/tmx2bin.py
+	@mkdir -p $(DIR)
+	python3 tools/tmx2bin.py --big-endian $< $@
+
+# The drawer: the game, its .dat files (amiga/tools/timmydat.py, each
+# checked against the game's own index header), the maps, the demo and
+# tutorial recordings, Libs/ with allegro4.library and acgame.library,
+# the read-mes and the icons.
+package: $(DIR)/$(NAME) $(MAPS)
+	mkdir -p $(DIR)/Libs $(DIR)/User
+	python3 amiga/tools/timmydat.py --all res src/data $(DIR)
+	cp static/DEMO.REC static/DEMO2.REC static/TUTORIAL.REC $(DIR)/
+	cp $(A4OUT)/allegro4.library $(ACGOUT)/acgame.library $(DIR)/Libs/
+	cp AMIGA_PORT.md $(DIR)/ReadMe
+	cp static/MANUAL.TXT $(DIR)/Manual.txt
+	cp LICENSE $(DIR)/COPYING.txt
+	cp amiga/Controls amiga/Licences.txt $(DIR)/
+	cp amiga/icons/$(NAME).info amiga/icons/ReadMe.info $(DIR)/
+	for f in Manual.txt COPYING.txt Controls Licences.txt; do cp amiga/icons/ReadMe.info $(DIR)/$$f.info; done
+	cp amiga/icons/Data.info $(DIR)/User.info
+	cp amiga/icons/$(NAME)-drawer.info $(BUILD)/$(NAME).info
+	cp amiga/Install-$(NAME) amiga/Install-$(NAME).info $(BUILD)/
+
+clean:
+	rm -rf $(BUILD)
+.PHONY: all package clean

@@ -1,0 +1,15 @@
+Timmy Time Adventure: controls
+==============================
+
+The keys as the game sets them the first time (Options changes them;
+they are kept in the drawer's User drawer, User/TIMMY.CFG).
+
+  Cursor keys     move, climb, crouch
+  Z               jump (hold for a higher jump)
+  X               pick up and throw, punch while jumping
+  Down + X        short throw
+  Return          confirm
+  Esc             the menu
+  Space           pause
+
+The menus: cursor keys and Return.

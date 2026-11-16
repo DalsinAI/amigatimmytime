@@ -1,0 +1,20 @@
+Timmy Time Adventure: licences
+==============================
+
+The game: Timmy Time Adventure, (c) 2026 Warcom Soft. (warrior-rockk),
+from github.com/warrior-rockk/timmy-time-adventure at commit
+99e50ba0d3062773f4e08b93a4c31cf7fcd3946f (version 1.9).
+
+- The game, its code and its data: GNU General Public License version 3
+  (COPYING.txt). The port's changes to the code (src/, tools/tmx2bin.py)
+  are under it too; the source of this build is in DalsinAI/amigatimmytime
+  on GitHub.
+- Libs/allegro4.library (DalsinAI/gfopenallegro) and Libs/acgame.library
+  (DalsinAI/acgame): MIT, Copyright (c) 2026 AmiCradle Team. They are our
+  own Allegro 4 and game libraries, not Allegro's code.
+- The Amiga port's own files (amiga/, AMIGA_PORT.md, package/, tools/
+  lha_archive.py, pack_dist.py and write_part.sh, tests/) are GPL-3 or
+  later like the game, Copyright (c) 2026 AmiCradle Team. The GlowIcons
+  are drawn from Timmy's own sprite in the game's data.
+
+Designed, tested and delivered by The AmiCradle Team.

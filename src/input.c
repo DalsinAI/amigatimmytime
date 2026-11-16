@@ -222,9 +222,13 @@ void input_log_record_update()
 			//write log records to file
 			for (uint16_t i = 0; i < inputLoggerStatus.eventIndex; i++)
 			{
-				fwrite(&inputLogEvent[i].frameTime,     sizeof(uint16_t),   1, recordFile);
-				fwrite(&inputLogEvent[i].controlCode,   sizeof(uint8_t),    1, recordFile);
-				fwrite(&inputLogEvent[i].controlEvent,  sizeof(uint8_t),    1, recordFile);
+				//4 bytes per event, frame time little-endian (the DOS format) on every CPU
+				uint8_t rec[4];
+				rec[0] = (uint8_t)(inputLogEvent[i].frameTime & 0xFF);
+				rec[1] = (uint8_t)(inputLogEvent[i].frameTime >> 8);
+				rec[2] = inputLogEvent[i].controlCode;
+				rec[3] = inputLogEvent[i].controlEvent;
+				fwrite(rec, sizeof(rec), 1, recordFile);
 			}
 			//close file
 			fclose(recordFile);
@@ -263,8 +267,13 @@ void input_log_play(char *_file)
     {
 		//read input log records
         uint16_t i = 0;
-        while(fread(&inputLogEvent[i],     sizeof(tInputLogEvent),   1, playerFile))
+        //4 bytes per event, frame time little-endian (the DOS format) on every CPU
+        uint8_t rec[4];
+        while(i < INPUT_LOG_MAX_EVENTS && fread(rec, sizeof(rec), 1, playerFile))
 		{
+			inputLogEvent[i].frameTime    = (uint16_t)(rec[0] | (rec[1] << 8));
+			inputLogEvent[i].controlCode  = rec[2];
+			inputLogEvent[i].controlEvent = rec[3];
 			i++;
         }
 		//close file

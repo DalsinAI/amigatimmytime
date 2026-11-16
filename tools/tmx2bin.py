@@ -107,6 +107,11 @@ enemy_ent_types = {name: index for index, name in enumerate(enemy_ent_types)}
 #define array of lists of entity types
 ent_types = [object_ent_types, object_ent_types, player_ent_types, object_ent_types, enemy_ent_types]
 
+# Byte order of the .bin files: '<' as the DOS game reads them, '>' with
+# --big-endian for big-endian CPUs (the GFOS 68040 build).
+BO = '<'
+
+
 def get_custom_properties(element):
     """Get custom properties and returns on dictionary."""
     props = {}
@@ -259,26 +264,26 @@ def parse_tmx_and_write_binary(tmx_file, bin_file):
 
         with open(bin_file, 'wb') as f:            
             # Pack the HEADER: 'H' = unsigned short (uint16_t, 2 bytes)
-            header = struct.pack('<HHHHHHHHHH', tile_width, tile_height, map_width, map_height, backColor, levelTime, tileCount, tileColumns, len(tile_data), len(tile_animations))
+            header = struct.pack(BO + 'HHHHHHHHHH', tile_width, tile_height, map_width, map_height, backColor, levelTime, tileCount, tileColumns, len(tile_data), len(tile_animations))
             f.write(header)
 
             # Write tiles: 'B' = unsigned char (uint8_t, 1 byte)
-            f.write(struct.pack(f'<{len(tiles)}B', *[t & 0xFF for t in tiles]))
+            f.write(struct.pack(BO + f'{len(tiles)}B', *[t & 0xFF for t in tiles]))
             
             # Write tiles properties
             for tile_id, value in tile_data:
-                f.write(struct.pack('<BH', tile_id, value))
+                f.write(struct.pack(BO + 'BH', tile_id, value))
 
             # Write tile animations
             for tile_id, frames in tile_animations.items():                
                 # Write ID tile and how many frames
                 print(f" Tile ID {tile_id} has {len(frames)} frames:")
-                f.write(struct.pack('<BB', int(tile_id), len(frames)))
+                f.write(struct.pack(BO + 'BB', int(tile_id), len(frames)))
             
                 # Write each frame (tile id and duration)
                 for frame in frames:
                     print(f"  -  Frame TileID: {frame['tileid']} (Duration: {frame['duration']}ms)")
-                    f.write(struct.pack('<BH', int(frame['tileid']), int(frame['duration'])))
+                    f.write(struct.pack(BO + 'BH', int(frame['tileid']), int(frame['duration'])))
             
             # Search entities layer            
             for obj_group in root.findall('objectgroup'):
@@ -323,10 +328,10 @@ def parse_tmx_and_write_binary(tmx_file, bin_file):
                 extracted_entities.sort(key=lambda x: x['class_id'])
 
                 # Write to bin file
-                f.write(struct.pack('<H', len(extracted_entities))) # Write num objects                
+                f.write(struct.pack(BO + 'H', len(extracted_entities))) # Write num objects                
                 print(f" Processing {len(extracted_entities)} entities in custom order...")
                 for ent in extracted_entities:
-                    f.write(struct.pack('<BBHHBH', 
+                    f.write(struct.pack(BO + 'BBHHBH', 
                         ent['class_id'], 
                         ent['type_id'], 
                         ent['x'], 
@@ -349,7 +354,7 @@ def parse_tmx_and_write_binary(tmx_file, bin_file):
                 print(f"✅ Processing layer: '{layerName}'")                
                 
                 objs = obj_group.findall('object')
-                f.write(struct.pack('<H', len(objs))) # Write num objects
+                f.write(struct.pack(BO + 'H', len(objs))) # Write num objects
                 print(f"📍 Processing objets: {len(objs)} objects")
                 foundEnemyLayer = 1
                 for obj in objs:                                        
@@ -366,13 +371,13 @@ def parse_tmx_and_write_binary(tmx_file, bin_file):
                     spare = get_property_value(obj, "spare", default=0)
 
                     # write object data
-                    f.write(struct.pack('<BBHHBH', entClass, entType, ox, oy, oDir, spare))                    
+                    f.write(struct.pack(BO + 'BBHHBH', entClass, entType, ox, oy, oDir, spare))                    
                     # print info
                     print(f"\tClass:{raw_class} - Type:{raw_type}")
 
             # if not found enemy layer, write 0 enemy count
             if not foundEnemyLayer:
-                f.write(struct.pack('<H', 0)) """
+                f.write(struct.pack(BO + 'H', 0)) """
         
         print(f"--- Done ---")
         print(f"File saved in: {bin_file}")
@@ -383,7 +388,10 @@ def parse_tmx_and_write_binary(tmx_file, bin_file):
 
 if __name__ == "__main__":
     # commandline use
-    if len(sys.argv) < 3:
-        print("Use: python tmx_to_bin.py <input.tmx> <output.bin>")
+    args = [a for a in sys.argv[1:] if a != '--big-endian']
+    if '--big-endian' in sys.argv[1:]:
+        BO = '>'
+    if len(args) < 2:
+        print("Use: python tmx_to_bin.py [--big-endian] <input.tmx> <output.bin>")
     else:
-        parse_tmx_and_write_binary(sys.argv[1], sys.argv[2])
+        parse_tmx_and_write_binary(args[0], args[1])

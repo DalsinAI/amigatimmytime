@@ -16,7 +16,11 @@
 #ifndef MINOR_VERSION  
     #define MINOR_VERSION           0
 #endif
+#ifdef __amigaos__
+    #define CONFIG_FILE         "User/TIMMY.CFG"    //GFOS: the player's files in the drawer's User drawer
+#else
 #define CONFIG_FILE             "TIMMY.CFG"
+#endif
 #define BETATESTING             0
 
 //allegro engine
@@ -30,6 +34,8 @@
     #define GAME_GFX_MODE           GFX_GDI     //selected video mode
     #define WINDOW_SIZE_W           960
     #define WINDOW_SIZE_H           600
+#elif defined(__amigaos__)
+    #define GAME_GFX_MODE           GFX_AUTODETECT  //GFOS: acgame.library picks AGA or RTG
 #else
     #define GAME_GFX_MODE           GFX_VGA     //selected video mode    
 #endif

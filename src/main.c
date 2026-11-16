@@ -71,7 +71,7 @@ END_OF_MAIN()
 static void main_init()
 {
     //set env var MY_TRACE log file
-    #ifndef WIN32
+    #if !defined(WIN32) && !defined(__amigaos__)
         setenv("ALLEGRO_TRACE", "GAME.LOG", 1);
     #endif
 

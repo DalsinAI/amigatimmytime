@@ -1,0 +1,16 @@
+{
+  "name": "TimmyTime",
+  "version": "1.9-gfos1",
+  "drawer": "TimmyTime",
+  "program": "TimmyTime",
+  "cpu": "68040",
+  "fpu": false,
+  "space": 8000000,
+  "modules": [],
+  "keep": [
+    "User"
+  ],
+  "parent": "Work:Games",
+  "badge": "icons/art/timmy.png",
+  "script": "Install-TimmyTime"
+}

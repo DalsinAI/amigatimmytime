@@ -71,7 +71,19 @@ int sound_init()
             int digitalSoundDriver = DIGI_AUTODETECT;
             int MIDISoundDriver    = MIDI_AUTODETECT;
             
-            #ifndef WIN32
+            #if defined(__amigaos__)
+                //GFOS: allegro4.library has one digital and one MIDI driver
+                digitalSoundDriver = DIGI_AUTODETECT;
+                MIDISoundDriver    = MIDI_AUTODETECT;
+                if (install_sound(digitalSoundDriver, MIDISoundDriver, 0) != 0)
+                {
+                    MY_TRACE_FLAG("Error initializating sound\n");
+                    retVal = -1;
+                }
+                else
+                    retVal = 0;
+                break;
+            #elif !defined(WIN32)
                 //select available digital driver
                 if (detect_digi_driver(DIGI_SB16) > 0)
                     digitalSoundDriver = DIGI_SB16;
