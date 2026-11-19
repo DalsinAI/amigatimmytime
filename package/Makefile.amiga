@@ -1,0 +1,14 @@
+# Timmy Time for GFOS / OpenUp
+# Target: Cradle boards / os32-gcc16-open6 stove
+
+STOVE ?= $(HOME)/AmiCradle/stoves/os32-gcc16-open6
+CC     = $(STOVE)/bin/m68k-amigaos-gcc
+CFLAGS = -O2 -m68040 -msoft-float -DGFOS -DPROGDIR_DATA
+INCLUDES = -I$(STOVE)/include
+
+all:
+	@echo "Timmy Time GFOS build target"
+	@echo "Source: pending identification"
+	@echo "Next: pin source, adapt for OpenUp SDL2.module, package PROGDIR: data"
+
+.PHONY: all
